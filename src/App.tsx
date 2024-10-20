@@ -46,7 +46,15 @@ export default function App() {
         r1: Math.floor(Math.random() * 151) + 50,
         r2: Math.floor(Math.random() * 151) + 50,
       })
-    })
+    }),
+    "x =": {
+      value: "r1cos(θ*a1)+r2cos(θa2)",
+      editable: false
+    },
+    "y =": {
+      value: "r1sin(θa1)+r2sin(θa2)",
+      editable: false
+    },
   })
   );
   useEffect(() => {
