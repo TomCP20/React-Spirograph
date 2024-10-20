@@ -73,7 +73,7 @@ export default function App() {
   );
   return (
     <div className="size-[800px] text-center m-auto">
-      <Canvas className="bg-black">
+      <Canvas className="bg-black" gl={{ preserveDrawingBuffer: true }}>
         <lineLoop>
           <bufferGeometry>
             <bufferAttribute attach={"attributes-position"} array={vertices} itemSize={3} count={n} />
