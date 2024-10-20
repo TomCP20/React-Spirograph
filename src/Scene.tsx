@@ -20,7 +20,6 @@ export default function Scene() {
       min: 0,
       max: 1,
       disabled: animating,
-      onChange: (v) => { setProgress(v); }
     },
     a1: {
       value: 1,
@@ -89,8 +88,9 @@ export default function Scene() {
   useEffect(() => {
     if (shaderRef.current) {
       shaderRef.current.uniforms.progress.value = progress;
+      set({progress: progress});
     }
-  }, [progress]);
+  }, [progress, set]);
   useFrame((_state, delta) => {
     if (animating) {
       setProgress(Math.min(progress + delta / 5, 1));
