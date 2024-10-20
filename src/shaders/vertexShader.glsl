@@ -1,6 +1,7 @@
 varying vec3 vCol;
 
 uniform int n;
+uniform float progress;
 uniform float a1;
 uniform float a2;
 uniform float r1;
@@ -17,7 +18,7 @@ return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 
 void main()
 {
-float t = float(gl_VertexID) / float(n);
+float t = progress * float(gl_VertexID) / float(n);
 vCol = hsv2rgb(vec3(t, 0.75, 0.75));
 float theta = 2.0 * M_PI * t;
 float x = r1 * cos(theta * a1) + r2 * cos(theta * a2);

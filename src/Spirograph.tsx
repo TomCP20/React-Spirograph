@@ -10,6 +10,7 @@ export default function Spirograph({ n, shaderRef }: Readonly<{ n: number, shade
         () => (
             {
                 n: { value: 1000 },
+                progress: { value: 1 },
                 a1: { value: 1 },
                 a2: { value: 1 },
                 r1: { value: 0.4 },
@@ -19,11 +20,11 @@ export default function Spirograph({ n, shaderRef }: Readonly<{ n: number, shade
         []
     );
     return (
-        <lineLoop>
+        <line>
             <bufferGeometry>
-                <bufferAttribute attach={"attributes-position"} array={vertices} itemSize={3} count={n} />
+                <bufferAttribute attach={"attributes-position"} array={vertices} itemSize={3} count={(n+1)} />
             </bufferGeometry>
             <shaderMaterial fragmentShader={fragmentShader} vertexShader={vertexShader} uniforms={uniforms} ref={shaderRef} />
-        </lineLoop>
+        </line>
     );
 }

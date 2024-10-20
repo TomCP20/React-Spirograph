@@ -7,13 +7,18 @@ import Spirograph from './Spirograph';
 
 export default function App() {
   const shaderRef = useRef<ShaderMaterial>(null!);
-  const [{ n, a1, a2, r1, r2 }, set] = useControls(() =>
+  const [{ n, progress, a1, a2, r1, r2 }, set] = useControls(() =>
   ({
     n: {
       value: 1000,
       min: 2,
       max: 10000,
       step: 1,
+    },
+    progress: {
+      value: 1,
+      min: 0,
+      max: 1,
     },
     a1: {
       value: 1,
@@ -75,6 +80,11 @@ export default function App() {
       shaderRef.current.uniforms.n.value = n;
     }
   }, [n])
+  useEffect(() => {
+    if (shaderRef.current) {
+      shaderRef.current.uniforms.progress.value = progress;
+    }
+  }, [progress])
   return (
     <div className="size-[800px] text-center m-auto">
       <Canvas className="bg-black" gl={{ preserveDrawingBuffer: true }}>
