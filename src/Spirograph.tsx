@@ -22,7 +22,7 @@ export default function Spirograph({ n, shaderRef }: Readonly<{ n: number, shade
     return (
         <line>
             <bufferGeometry>
-                <bufferAttribute attach={"attributes-position"} array={vertices} itemSize={3} count={(n+1)} />
+                <bufferAttribute attach={"attributes-position"} array={vertices} itemSize={3} count={(n + 1)} />
             </bufferGeometry>
             <shaderMaterial fragmentShader={fragmentShader} vertexShader={vertexShader} uniforms={uniforms} ref={shaderRef} />
         </line>
