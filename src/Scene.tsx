@@ -20,6 +20,7 @@ export default function Scene() {
       min: 0,
       max: 1,
       disabled: animating,
+      onChange: (v) => setProgress(v),
     },
     a1: {
       value: 1,

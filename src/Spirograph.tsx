@@ -5,7 +5,7 @@ import fragmentShader from './shaders/fragmentShader.glsl??raw'
 import vertexShader from './shaders/vertexShader.glsl??raw'
 
 export default function Spirograph({ n, shaderRef }: Readonly<{ n: number, shaderRef: MutableRefObject<ShaderMaterial> }>) {
-    const vertices = new Float32Array(n * 3);
+    const vertices = new Float32Array((n + 1) * 3);
     const uniforms = useMemo(
         () => (
             {
